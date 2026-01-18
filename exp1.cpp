@@ -1,57 +1,70 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main(){
-    int choice;
-    int count;  
-    int i=0,j=0;
-    int a[2];
-    for(i=0;i<2;i++){
-        cout<<"Enter element a["<<i<<"]:";
-        cin>>a[i];
+
+int main() {
+    int n;
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    int arr[n];
+
+    // Input array
+    cout << "Enter array elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-    cout<<"Matrix is:\n";
-    for(i=0;i<2;i++){
-        cout<<a[i]<<" ";
-    }  cout<<"\n";
-    int b[2];
-    for(i=0;i<2;i++){
-        cout<<"Enter element b["<<i<<"]:";
-        cin>>b[i];
-    } switch (choice)
-    {
-    case 1:
-        cout << "Addition of matrices:\n";
-        for (i = 0; i < 2; i++)
-        {
-            cout << a[i] + b[i] << " ";
+
+    // Display array
+    cout << "Array elements: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    // Sum of elements
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    cout << "Sum = " << sum << endl;
+
+    // Maximum element
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max)
+            max = arr[i];
+    }
+    cout << "Maximum = " << max << endl;
+
+    // Minimum element
+    int min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < min)
+            min = arr[i];
+    }
+    cout << "Minimum = " << min << endl;
+
+    // Search element
+    int key, found = 0;
+    cout << "Enter element to search: ";
+    cin >> key;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == key) {
+            cout << "Element found at index " << i << endl;
+            found = 1;
+            break;
         }
-        cout << "\n";
-        break;
-    case 2:
-        cout << "Subtraction of matrices:\n";
-        for (i = 0; i < 2; i++)
-        {
-            cout << a[i] - b[i] << " ";
-        }
-        cout << "\n";
-        break;
-    case 3:
-        cout << "Multiplication of matrices:\n";
-        for (i = 0; i < 2; i++)
-        {
-            cout << a[i] * b[i] << " ";
-        }
-        cout << "\n";
-        break;
-    case 4:
-        cout << "Transpose of matrix a:\n";
-        for (i = 0; i < 2; i++)
-        {
-            cout << a[i] << " ";
-        }
-        cout << "\n";
-    default:
-        break;
-    }   
+    }
+
+    if (found == 0)
+        cout << "Element not found\n";
+
+    // Reverse array
+    cout << "Reversed array: ";
+    for (int i = n - 1; i >= 0; i--) {
+        cout << arr[i] << " ";
+    }
+
     return 0;
 }
