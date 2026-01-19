@@ -80,7 +80,7 @@ int main()
         {
             for (j = 0; j < 2; j++)
             {
-                c[i][j] = a[i][j] * b[i][j];
+                c[i][j] = a[i][j] * b[j][i];
                 cout << c[i][j] << " ";
             }
             cout << "\n";
